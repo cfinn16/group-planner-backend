@@ -9,6 +9,11 @@ class Api::V1::GroupsController < ApplicationController
     render json: @group, status: :ok
   end
 
+  def create
+    @group = Group.create(group_params)
+    render json: @group, status: :created
+  end
+
   def show_groups
     @user = User.find(params[:id])
     render json: @user, status: :ok
